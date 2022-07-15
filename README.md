@@ -2,8 +2,8 @@
 
 Some functions for the terminal.
 
-- [io/fgetpw.h](io/fgetpw.h) : fgets without echoing [manpage](./doc/fgetpw.4.md).
-- [io/prompt.h](io/prompt.h) : Read input interactively [manpage](./doc/prompt.3.md).
+- [io/fgetpw.h](io/fgetpw.h) : Like *fgets()* but without echoing [manpage](./doc/fgetpw.4.md).
+- [io/prompt.h](io/prompt.h) : Read by printing a prompt (only on a tty).  [manpage](./doc/prompt.3.md).
 
 ## Collaborating
 

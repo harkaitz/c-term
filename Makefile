@@ -18,10 +18,11 @@ clean:
 
 
 ## -- manpages --
-install: install-man
-install-man: ./doc/prompt.3.md ./doc/fgetpw.3.md 
+MAN_3=./doc/prompt.3 ./doc/fgetpw.3 
+install: install-man3
+install-man3: $(MAN_3)
 	mkdir -p $(DESTDIR)$(PREFIX)/share/man/man3
-	cp ./doc/prompt.3 ./doc/fgetpw.3  $(DESTDIR)$(PREFIX)/share/man/man3
+	cp $(MAN_3) $(DESTDIR)$(PREFIX)/share/man/man3
 ## -- manpages --
 ## -- license --
 install: install-license
