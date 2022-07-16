@@ -10,8 +10,8 @@ all: $(PROGRAMS)
 install: $(PROGRAMS) $(HEADERS) 
 	mkdir -p $(DESTDIR)$(PREFIX)/bin
 	mkdir -p $(DESTDIR)$(PREFIX)/include/io
-	cp $(PROG_PROMPT) $(DESTDIR)$(PREFIX)/bin
-	cp $(HEADERS) $(DESTDIR)$(PREFIX)/include/io
+	cp $(PROGRAMS) $(DESTDIR)$(PREFIX)/bin
+	cp $(HEADERS)  $(DESTDIR)$(PREFIX)/include/io
 clean:
 	rm -f $(PROGRAMS)
 
