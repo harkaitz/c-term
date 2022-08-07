@@ -1,5 +1,5 @@
 //bin/true && exec hcc "$0" "$@"
-#include "../include/io/prompt.h"
+#include "../io/prompt.h"
 int main (int argc, const char *argv[]) {
 
     const char *opts, *prompt;
