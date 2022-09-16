@@ -20,13 +20,14 @@ tools/prompt$(EXE): tools/prompt.c io/prompt.h
 	$(CC) -o $@ tools/prompt.c $(CFLAGS)
 
 ## -- manpages --
-ifneq ($(PREFIX),)
-MAN_3=./doc/prompt.3 ./doc/fgetpw.3 
 install: install-man3
-install-man3: $(MAN_3)
-	mkdir -p $(DESTDIR)$(PREFIX)/share/man/man3
-	cp $(MAN_3) $(DESTDIR)$(PREFIX)/share/man/man3
-endif
+install-man3:
+	@echo 'I share/man/man3/'
+	@mkdir -p $(DESTDIR)$(PREFIX)/share/man/man3
+	@echo 'I share/man/man3/prompt.3'
+	@cp ./doc/prompt.3 $(DESTDIR)$(PREFIX)/share/man/man3
+	@echo 'I share/man/man3/fgetpw.3'
+	@cp ./doc/fgetpw.3 $(DESTDIR)$(PREFIX)/share/man/man3
 ## -- manpages --
 ## -- license --
 ifneq ($(PREFIX),)
