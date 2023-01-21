@@ -3,10 +3,13 @@
 
 #include <unistd.h>
 #include <stdio.h>
-#include <termios.h>
+#ifdef __unix__
+#  include <termios.h>
+#endif
 
 static inline
 char *fgetpw (char _s[], size_t _size, FILE *_stream) {
+#   ifdef __unix__
     struct termios old, new;
 
     /* Turn echoing off and fail if we can't. */
@@ -16,13 +19,15 @@ char *fgetpw (char _s[], size_t _size, FILE *_stream) {
     new.c_lflag &= ~ECHO;
     if (tcsetattr (fileno (_stream), TCSAFLUSH, &new) != 0)
         return NULL;
+#   endif
 
     /* Read the password. */
     char *ret = fgets(_s, _size, _stream);
-
+    
     /* Restore terminal. */
+#   ifdef __unix__
     (void) tcsetattr (fileno (_stream), TCSAFLUSH, &old);
-
+#   endif
     return ret;
 }
 
@@ -32,7 +37,7 @@ char *fgetpw (char _s[], size_t _size, FILE *_stream) {
  * MIT License
  * 
  * Bug reports, feature requests to gemini|https://harkadev.com/oss
- * Copyright (c) 2022 Harkaitz Agirre, harkaitz.aguirre@gmail.com
+ * Copyright (c) 2023 Harkaitz Agirre, harkaitz.aguirre@gmail.com
  * 
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
