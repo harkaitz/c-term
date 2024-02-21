@@ -1,4 +1,3 @@
-//bin/true && exec hcc "$0" "$@"
 #include "../io/prompt.h"
 int main (int argc, const char *argv[]) {
 

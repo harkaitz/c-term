@@ -3,8 +3,10 @@
 
 #include <unistd.h>
 #include <stdio.h>
+#include <stdio.h>
 #ifdef __unix__
-#  include <termios.h>
+#include <termios.h>
+extern int fileno(FILE *stream);
 #endif
 
 static inline
