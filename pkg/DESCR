@@ -1,0 +1,1 @@
+Some C functions for terminal I/O, ie fgets equivalent without echoing.
